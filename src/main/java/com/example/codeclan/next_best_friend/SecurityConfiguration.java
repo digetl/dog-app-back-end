@@ -36,4 +36,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.headers().frameOptions().disable();
     }
 
+    @Bean
+    public PasswordEncoder getPasswordEncoder() { return NoOpPasswordEncoder.getInstance(); }
+
 }

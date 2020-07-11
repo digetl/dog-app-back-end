@@ -1,5 +1,7 @@
 package com.example.codeclan.next_best_friend.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +24,7 @@ public class Breeder extends User {
 //    @JoinColumn(name = "user_id", nullable = false)
 //    private User user;
 
+    @JsonBackReference
     @OneToMany(mappedBy = "breeder", fetch = FetchType.LAZY)
     private List<Listing> listings;
 
@@ -44,19 +47,23 @@ public class Breeder extends User {
         this.breederNumber = breederNumber;
     }
 
-//    public List<Listing> getListings() {
-//        return listings;
-//    }
-//
-//    public void setListings(List<Listing> listings) {
-//        this.listings = listings;
-//    }
-//
-//    public User getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
+    @Override
+    public String getRoles() {
+        return roles;
+    }
+
+    @Override
+    public void setRoles(String roles) {
+        this.roles = roles;
+    }
+
+    @Override
+    public List<Listing> getListings() {
+        return listings;
+    }
+
+    @Override
+    public void setListings(List<Listing> listings) {
+        this.listings = listings;
+    }
 }

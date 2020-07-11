@@ -33,6 +33,4 @@ public class UserService implements UserDetailsService {
         return user.map(UserDetailsModel::new).get();
     }
 
-
-
 }
