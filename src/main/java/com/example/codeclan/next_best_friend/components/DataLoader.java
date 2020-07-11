@@ -11,6 +11,8 @@ import com.example.codeclan.next_best_friend.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -28,15 +30,22 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     DogRepository dogRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     public DataLoader(){
 
     }
 
     public void run(ApplicationArguments args) {
-        User user = new User("Jay", "passw");
+
+        String password1 = passwordEncoder.encode("passw");
+        String password2 = passwordEncoder.encode("breed");
+
+        User user = new User("Jay", password1);
         userRepository.save(user);
 
-        Breeder breeder1 = new Breeder("Dave", "breed", "101");
+        Breeder breeder1 = new Breeder("Dave", password2, "101");
         breederRepository.save(breeder1);
 
         Dog border = new Dog("Border Terrier", "Medium", "Terrier");
