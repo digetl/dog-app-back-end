@@ -20,7 +20,7 @@ public class Dog {
     @Column(name = "family")
     private String family;
 
-//    @JsonBackReference
+    @JsonBackReference
     @OneToOne(mappedBy = "dog")
     private Listing listing;
 
