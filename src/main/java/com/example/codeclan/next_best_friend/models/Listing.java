@@ -21,7 +21,6 @@ public class Listing {
     private int age;
 
     @OneToOne
-//    @JoinColumn(name = "dog_id")
     @JoinColumn(name = "dog_id")
     private Dog dog;
 
