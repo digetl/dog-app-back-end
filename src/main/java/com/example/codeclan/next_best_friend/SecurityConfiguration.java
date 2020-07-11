@@ -18,9 +18,20 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     UserDetailsService userDetailsService;
 
     @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService);
+        System.out.println("SECURITY CONFIGURED AUTH >>>>>");
+    }
+
+    @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
-                .authorizeRequests().antMatchers("/").permitAll();
+                .authorizeRequests()
+                .antMatchers( "/login/").hasRole("USER")
+                .antMatchers("/").permitAll()
+                .and().httpBasic();
+
+        System.out.println("SECURITY CONFIGURED HTTP >>>>>");
 
         http.headers().frameOptions().disable();
     }
