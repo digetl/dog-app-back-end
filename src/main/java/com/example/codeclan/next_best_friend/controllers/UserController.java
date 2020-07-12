@@ -77,10 +77,14 @@ public class UserController {
 
     }
 
-    @DeleteMapping(value = "/user/{id}"){
-
+    @DeleteMapping(value = "/user/delete/{id}")
+    public ResponseEntity deleteUser(@PathVariable Long id){
+        if (!userRepository.findById(id).isPresent()){
+            return new ResponseEntity("User Id Not Found", HttpStatus.BAD_REQUEST);
+        }
+        userRepository.deleteById(id);
+        return new ResponseEntity("User Deleted", HttpStatus.OK);
     }
-
 
 
 
