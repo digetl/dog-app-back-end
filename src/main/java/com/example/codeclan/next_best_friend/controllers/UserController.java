@@ -86,7 +86,4 @@ public class UserController {
         return new ResponseEntity("User Deleted", HttpStatus.OK);
     }
 
-
-
-
 }
