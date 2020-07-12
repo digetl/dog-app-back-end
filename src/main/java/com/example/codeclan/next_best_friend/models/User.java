@@ -1,5 +1,7 @@
 package com.example.codeclan.next_best_friend.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Polymorphism;
 
 import javax.persistence.*;
@@ -15,10 +17,10 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "usernames")
+    @Column(name = "username")
     private String username;
 
-    @Column(name = "passwords")
+    @Column(name = "password")
     private String password;
 
     @Column
@@ -27,8 +29,8 @@ public class User {
 //    @OneToOne(mappedBy = "user")
 //    private Breeder breeder;
 
-
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @JsonBackReference
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Listing> listings;
 
 

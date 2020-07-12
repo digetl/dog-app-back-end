@@ -77,7 +77,7 @@ public class UserController {
 
     }
 
-    @DeleteMapping(value = "/user/delete/{id}")
+    @DeleteMapping(value = "/delete/user/{id}")
     public ResponseEntity deleteUser(@PathVariable Long id){
         if (!userRepository.findById(id).isPresent()){
             return new ResponseEntity("User Id Not Found", HttpStatus.BAD_REQUEST);

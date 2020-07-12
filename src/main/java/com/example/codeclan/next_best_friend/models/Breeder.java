@@ -24,9 +24,9 @@ public class Breeder extends User {
 //    @JoinColumn(name = "user_id", nullable = false)
 //    private User user;
 
-    @JsonBackReference
-    @OneToMany(mappedBy = "breeder", fetch = FetchType.LAZY)
-    private List<Listing> listings;
+//    @JsonBackReference
+//    @OneToMany(mappedBy = "breeder", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//    private List<Listing> listings;
 
     public Breeder(String username, String password, String breederNumber) {
         super(username, password);
@@ -57,13 +57,13 @@ public class Breeder extends User {
         this.roles = roles;
     }
 
-    @Override
-    public List<Listing> getListings() {
-        return listings;
-    }
-
-    @Override
-    public void setListings(List<Listing> listings) {
-        this.listings = listings;
-    }
+//    @Override
+//    public List<Listing> getListings() {
+//        return listings;
+//    }
+//
+//    @Override
+//    public void setListings(List<Listing> listings) {
+//        this.listings = listings;
+//    }
 }
