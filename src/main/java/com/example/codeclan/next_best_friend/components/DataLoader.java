@@ -48,16 +48,26 @@ public class DataLoader implements ApplicationRunner {
         Breeder breeder1 = new Breeder("Dave", password2, "101");
         breederRepository.save(breeder1);
 
+        Breeder ash = new Breeder("Ash", password2, "104");
+        breederRepository.save(ash);
+
         Dog border = new Dog("Border Terrier", "Medium", "Terrier");
         dogRepository.save(border);
         Dog alsatian = new Dog("German Sheppard", "Large", "Working Dog");
         dogRepository.save(alsatian);
+        Dog bernard = new Dog("St Bernard", "Large", "Working Dog");
+        dogRepository.save(bernard);
+        Dog chihuahua = new Dog("Chihuahua", "Small", "Toy");
+        dogRepository.save(chihuahua);
 //
         Listing listing1 = new Listing("Larry", 120, 2, alsatian, breeder1);
         listingRepository.save(listing1);
 
-        Listing listing2 = new Listing("Wuffle", 30, 1, border, breeder1);
+        Listing listing2 = new Listing("Buster", 70, 1, border, breeder1);
         listingRepository.save(listing2);
+
+        Listing listing3 = new Listing("Ratly", 30, 1, chihuahua, ash);
+        listingRepository.save(listing3);
 
     }
 
