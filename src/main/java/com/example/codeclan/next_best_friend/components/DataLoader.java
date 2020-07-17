@@ -728,11 +728,14 @@ public class DataLoader implements ApplicationRunner {
         User user = new User("Jay", password1);
         userRepository.save(user);
 
+        User user2 = new User("Ru", password2);
+        userRepository.save(user2);
+
         Breeder breeder1 = new Breeder("Dave", password2, "101");
         breederRepository.save(breeder1);
 
-        Breeder ash = new Breeder("Ash", password2, "104");
-        breederRepository.save(ash);
+        Breeder annie = new Breeder("Annie", password2, "104");
+        breederRepository.save(annie);
 
         Dog border = new Dog("Border Terrier", "Medium", "Terrier");
         dogRepository.save(border);
@@ -742,15 +745,29 @@ public class DataLoader implements ApplicationRunner {
         dogRepository.save(bernard);
         Dog chihuahua = new Dog("Chihuahua", "Small", "Toy");
         dogRepository.save(chihuahua);
-//
+        Dog kingCharles = new Dog("Cavalier King Charles Spaniel", "Small", "Toy");
+        dogRepository.save(kingCharles);
+
         Listing listing1 = new Listing("Larry", 120, 2, alsatian, breeder1);
         listingRepository.save(listing1);
 
         Listing listing2 = new Listing("Buster", 70, 1, border, breeder1);
         listingRepository.save(listing2);
 
-        Listing listing3 = new Listing("Ratly", 30, 1, chihuahua, ash);
+        Listing listing3 = new Listing("Ratly", 30, 1, chihuahua, annie);
         listingRepository.save(listing3);
+
+        Listing listing4 = new Listing("Sam", 50, 6, kingCharles, annie);
+        listingRepository.save(listing4);
+
+        Listing listing5 = new Listing("Marley", 50, 6, kingCharles, annie);
+        listingRepository.save(listing5);
+
+        Listing listing6 = new Listing("Baxter", 40, 2, border, annie);
+        listingRepository.save(listing6);
+
+        Listing listing7 = new Listing("Alchemy", 30, 11, kingCharles, breeder1);
+        listingRepository.save(listing7);
 
     }
 

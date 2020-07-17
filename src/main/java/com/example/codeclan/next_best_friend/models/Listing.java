@@ -20,7 +20,7 @@ public class Listing {
     @Column(name = "age")
     private int age;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "dog_id")
     private Dog dog;
 

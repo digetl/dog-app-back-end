@@ -2,6 +2,8 @@ package com.example.codeclan.next_best_friend.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "dogs")
@@ -21,13 +23,14 @@ public class Dog {
     private String family;
 
     @JsonBackReference
-    @OneToOne(mappedBy = "dog")
-    private Listing listing;
+    @OneToMany(mappedBy = "dog")
+    private List<Listing> listing;
 
     public Dog(String breed, String size, String family) {
         this.breed = breed;
         this.size = size;
         this.family = family;
+        this.listing = new ArrayList<>();
     }
 
     public Dog() {
@@ -67,11 +70,11 @@ public class Dog {
     }
 
 
-    public Listing getListing() {
+    public List<Listing> getListing() {
         return listing;
     }
 
-    public void setListing(Listing listing) {
+    public void setListing(List<Listing> listing) {
         this.listing = listing;
     }
 }

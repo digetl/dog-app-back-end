@@ -21,7 +21,7 @@ public class DogController {
 
     @GetMapping(value = "/dogs")
     public ResponseEntity getDogs() {
-        return new ResponseEntity<>(dogRepository.findAll(), HttpStatus.OK);
+        return new ResponseEntity(dogRepository.findAll(), HttpStatus.OK);
     }
 
 }
